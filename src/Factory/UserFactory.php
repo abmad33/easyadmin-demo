@@ -17,8 +17,8 @@ final class UserFactory extends PersistentObjectFactory
 
     protected function defaults(): array|callable
     {
-        $firstName = self::faker()->firstName();
-        $lastName = self::faker()->lastName();
+        $firstName = mb_substr(self::faker()->firstName(), 0, 100);
+        $lastName = mb_substr(self::faker()->lastName(), 0, 100);
 
         return [
             'fullName' => $firstName.' '.$lastName,
